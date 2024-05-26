@@ -1,12 +1,8 @@
 package com.example.library.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
-
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,9 +11,14 @@ public class Book {
     private String title;
     private int year;
     private int count;
+    @Column(name = "photo_url")
+    private String photoUrl;
+
 
     public Book() {
     }
+
+
 
     public int getId() {
         return id;
@@ -57,5 +58,13 @@ public class Book {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
     }
 }
